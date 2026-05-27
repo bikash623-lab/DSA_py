@@ -149,3 +149,94 @@ Explanation: Subarray [12, -5, -6, 50] → average = 51/4 = 12.75
 # nums = [1, 12, -5, -6, 50, 3]
 # k = 4
 # print(Max_Avg_Sub(nums, k))
+
+
+"""
+Easy — Two Sum
+Problem:
+Given an array of integers nums and a target integer target, return the indices of the two numbers that add up to the target.
+Example:
+Input:  nums = [2, 7, 11, 15], target = 9
+Output: [0, 1]
+Explanation: nums[0] + nums[1] = 2 + 7 = 9
+Constraints:
+
+Each input has exactly one solution
+You cannot use the same element twice
+"""
+# def two_sum(nums, target):
+#     result = []
+#     for i in range(len(nums)):
+#         for j in range(i + 1 ,len(nums)):
+#             if nums[i] + nums[j] == target:
+#                 result.append([i, j])
+#     return result
+        
+
+# nums = [2, 7, 11, 15]
+# target = 9
+# print(two_sum(nums, target))
+
+
+"""
+ Easy — Contains Duplicate
+Problem:
+Given an integer array nums, return True if any value appears at least twice, and False if every element is distinct.
+Example 1:
+Input:  nums = [1, 2, 3, 1]
+Output: True
+Explanation: 1 appears twice
+Example 2:
+Input:  nums = [1, 2, 3, 4]
+Output: False
+Explanation: all elements are unique
+"""
+# def contain_duplucate(nums):
+#     seen = set()
+#     for i in range(len(nums)):
+#         if nums[i] not in seen:
+#             seen.add(nums[i])
+#         else:
+#             return True
+#     return False
+
+# nums = [1,2,3,4]
+# print(contain_duplucate(nums))
+
+
+
+
+"""
+Easy — Best Time to Buy and Sell Stock
+Problem:
+You are given an array prices where prices[i] is the price of a stock on day i. 
+You want to maximize your profit by choosing a single day to buy and a different day in the future to sell.
+Return the maximum profit. If no profit is possible return 0.
+"""
+
+# # this is my code:
+def max_profit(prices):
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        if price < min_price:
+            min_price = price
+        else:
+            max_profit = max(max_profit, price - min_price)
+    return max_profit
+
+# This is from claude
+# def max_profit(prices):
+#     min_price = float("inf")
+#     max_profit = 0
+#     for price in prices:
+#         min_price = min(min_price, price)
+#         max_profit = max(max_profit, price - min_price)
+#     return max_profit
+
+prices = [7, 1, 5, 3, 6, 4,10]
+print(max_profit(prices))
+
+
+
+
