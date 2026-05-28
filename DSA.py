@@ -215,15 +215,15 @@ Return the maximum profit. If no profit is possible return 0.
 """
 
 # # this is my code:
-def max_profit(prices):
-    min_price = float('inf')
-    max_profit = 0
-    for price in prices:
-        if price < min_price:
-            min_price = price
-        else:
-            max_profit = max(max_profit, price - min_price)
-    return max_profit
+# def max_profit(prices):
+#     min_price = float('inf')
+#     max_profit = 0
+#     for price in prices:
+#         if price < min_price:
+#             min_price = price
+#         else:
+#             max_profit = max(max_profit, price - min_price)
+#     return max_profit
 
 # This is from claude
 # def max_profit(prices):
@@ -234,9 +234,36 @@ def max_profit(prices):
 #         max_profit = max(max_profit, price - min_price)
 #     return max_profit
 
-prices = [7, 1, 5, 3, 6, 4,10]
-print(max_profit(prices))
+# prices = [7, 1, 5, 3, 6, 4,10]
+# print(max_profit(prices))
 
 
 
 
+"""
+🟢 Easy — Climbing Stairs
+You were about to try this one. Here's the problem again:
+Given n steps, you can climb 1 or 2 steps at a time. How many distinct ways can you reach the top?
+n=2 → 2 ways
+n=3 → 3 ways
+n=5 → 8 ways
+
+Give it a shot and paste your code! 💪🔥"""
+
+
+
+def Climbing_stairs(n):
+    if n <=2:
+        return n
+    
+    prev2 = 1
+    prev1 = 2
+
+    for i in range(3, n + 1):
+        current = prev2 + prev1
+        prev2 = prev1
+        prev1 = current
+    return prev1
+
+n = 4
+print(Climbing_stairs(n))
