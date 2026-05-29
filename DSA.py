@@ -252,18 +252,52 @@ Give it a shot and paste your code! 💪🔥"""
 
 
 
-def Climbing_stairs(n):
-    if n <=2:
-        return n
+# def Climbing_stairs(n):
+#     if n <=2:
+#         return n
     
-    prev2 = 1
-    prev1 = 2
+#     prev2 = 1
+#     prev1 = 2
 
-    for i in range(3, n + 1):
-        current = prev2 + prev1
-        prev2 = prev1
-        prev1 = current
-    return prev1
+#     for i in range(3, n + 1):
+#         current = prev2 + prev1
+#         prev2 = prev1
+#         prev1 = current
+#     return prev1
 
-n = 4
-print(Climbing_stairs(n))
+# n = 4
+# print(Climbing_stairs(n))
+
+
+"""
+Next Up — Two Pointers 🔲
+🟢 Easy — Valid Palindrome
+Problem:
+Given a string s, return True if it is a palindrome, False otherwise.
+A palindrome reads the same forwards and backwards.
+Example 1:
+Input:  s = "racecar"
+Output: True
+"""
+
+# def is_Palindrome(s):
+#     left = 0
+#     right = len(s) - 1
+
+#     while left < right:
+#         if s[left] != s[right]:
+#             return False
+#         left += 1
+#         right -= 1
+#     return True
+
+# print(is_Palindrome("racecar"))  # True
+# print(is_Palindrome("hello"))    # False
+# print(is_Palindrome("abba"))     # True
+
+
+
+s = "racecar"
+left = 0
+right = len(s) - 1
+print(right)
