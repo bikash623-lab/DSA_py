@@ -296,8 +296,80 @@ Output: True
 # print(is_Palindrome("abba"))     # True
 
 
+"""
+Easy — Two Sum II (Sorted Array)
+Problem:
+Given a sorted array numbers and a target, return the indices of the two numbers that add up to target. Indices are 1-based (start from 1 not 0).
+Example 1:
+Input:  numbers = [2, 7, 11, 15], target = 9
+Output: [1, 2]
+Explanation: 2 + 7 = 9 → index 1 and index 2
+"""
 
-s = "racecar"
-left = 0
-right = len(s) - 1
-print(right)
+# def Two_sum(numbers, target):
+#     output = []
+    
+#     for i in range(len(numbers)):
+#         for j in range(i + 1, len(numbers)):
+#             if numbers[i] + numbers[j] == target:
+#                 output.append([i, j])
+#     return output
+
+
+
+
+# numbers = [2, 7, 11, 15]
+# target = 9
+
+
+# print(Two_sum(numbers, target))
+
+
+# def two_sum(numbers, target):
+#     left = 0
+#     right = len(numbers) - 1
+
+#     while left < right:
+#         current_sum = numbers[left] + numbers[right]
+#         if current_sum == target:
+#             return [left + 1,  right + 1]
+#         elif current_sum  > target:
+#             right -= 1
+#         else:
+#             left += 1
+#     return[]
+
+
+
+# numbers = [2, 7, 11, 15]
+# target = 9
+# print(two_sum(numbers, target))
+
+
+"""
+🟢 Easy — Binary Search
+Problem:
+Given a sorted array nums and a target, return the index of target if it exists, otherwise return -1.
+Example 1:
+Input:  nums = [-1, 0, 3, 5, 9, 12], target = 9
+Output: 4
+Explanation: 9 is at index 4
+"""
+def binary_search(nums, target):
+    left = 0
+    right = len(nums) - 1
+    while left <= right:
+        mid =(left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid -1
+    return -1
+
+
+nums = [-1, 0, 9, 5, 12, 10]
+target = 9
+
+print(binary_search(nums, target))
