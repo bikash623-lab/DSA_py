@@ -54,7 +54,8 @@ Replace Elements With Greatest Element On Right Side
 Easy
 Topics
 Company Tags
-You are given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.
+You are given an array arr, replace every element in that array with the greatest element among the elements to its right, 
+and replace the last element with -1.
 
 After doing so, return the array.
 
