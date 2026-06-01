@@ -397,7 +397,7 @@ def Max_consecutive_ones(nums):
             curren_count += 1
         else:
             curren_count = 0
-            max_count = max(max_count, curren_count)
+        max_count = max(max_count, curren_count)
     return max_count
  
 
