@@ -388,20 +388,48 @@ Input:  nums = [1, 1, 0, 1, 1, 1]
 Output: 3
 Explanation: Last three 1s are the longest consecutive sequence
 """
-def Max_consecutive_ones(nums):
-    curren_count = 0
-    max_count = 0
+# def Max_consecutive_ones(nums):
+#     curren_count = 0
+#     max_count = 0
     
-    for num in nums:
-        if num == 1:
-            curren_count += 1
-        else:
-            curren_count = 0
-        max_count = max(max_count, curren_count)
-    return max_count
+#     for num in nums:
+#         if num == 1:
+#             curren_count += 1
+#         else:
+#             curren_count = 0
+#         max_count = max(max_count, curren_count)
+#     return max_count
  
 
 
 
-nums = [1, 1, 0, 1, 1, 1]
-print(Max_consecutive_ones(nums))
+# nums = [1, 1, 0, 1, 1, 1]
+# print(Max_consecutive_ones(nums))
+
+
+# 2. HashMap
+"""
+🟢 Easy — Ransom Note
+Problem:
+Given two strings ransomNote and magazine, return True if you can construct ransomNote using letters from magazine, False otherwise.
+Each letter in magazine can only be used once.
+Example 1:
+Input:  ransomNote = "a", magazine = "b"
+Output: False
+"""
+
+
+def ransome_note(ransomNote, magazine):
+    count = {}
+
+
+    for char in magazine:
+        count[char] = count.get(char, 0) + 1
+    
+    for char in ransomNote:
+        if char not in count or count[char] == 0:
+            return False
+        count[char] -= 1
+    return True
+
+print(ransome_note("a", "b"))
