@@ -356,21 +356,52 @@ Input:  nums = [-1, 0, 3, 5, 9, 12], target = 9
 Output: 4
 Explanation: 9 is at index 4
 """
-def binary_search(nums, target):
-    left = 0
-    right = len(nums) - 1
-    while left <= right:
-        mid =(left + right) // 2
-        if nums[mid] == target:
-            return mid
-        elif nums[mid] < target:
-            left = mid + 1
+# def binary_search(nums, target):
+#     left = 0
+#     right = len(nums) - 1
+#     while left <= right:
+#         mid =(left + right) // 2
+#         if nums[mid] == target:
+#             return mid
+#         elif nums[mid] < target:
+#             left = mid + 1
+#         else:
+#             right = mid -1
+#     return -1
+
+
+# nums = [-1, 0, 9, 5, 12, 10]
+# target = 9
+
+# print(binary_search(nums, target))
+
+
+# All patterns practice problems
+
+# 1. Sliding window
+"""
+Max Consecutive Ones (Sliding Window)
+Problem:
+Given a binary array nums containing only 0s and 1s, return the maximum number of consecutive 1s.
+Example 1:
+Input:  nums = [1, 1, 0, 1, 1, 1]
+Output: 3
+Explanation: Last three 1s are the longest consecutive sequence
+"""
+def Max_consecutive_ones(nums):
+    curren_count = 0
+    max_count = 0
+    
+    for num in nums:
+        if num == 1:
+            curren_count += 1
         else:
-            right = mid -1
-    return -1
+            curren_count = 0
+            max_count = max(max_count, curren_count)
+    return max_count
+ 
 
 
-nums = [-1, 0, 9, 5, 12, 10]
-target = 9
 
-print(binary_search(nums, target))
+nums = [1, 1, 0, 1, 1, 1]
+print(Max_consecutive_ones(nums))
