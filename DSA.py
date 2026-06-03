@@ -457,35 +457,81 @@ minStack.top()    → 0
 minStack.getMin() → -2
 """
 
-class Minstack:
-    def __init__(self):
-        self.stack = []
-        self.min_stack = []
+# class Minstack:
+#     def __init__(self):
+#         self.stack = []
+#         self.min_stack = []
 
-    def push(self, val):
-        self.stack.append(val)
-        if not self.min_stack or val <= self.min_stack[-1]:
-            self.min_stack.append(val)
-    def pop(self):
-        if self.stack[-1] == self.min_stack[-1]:
-            self.min_stack.pop()
-        self.stack.pop()
+#     def push(self, val):
+#         self.stack.append(val)
+#         if not self.min_stack or val <= self.min_stack[-1]:
+#             self.min_stack.append(val)
+#     def pop(self):
+#         if self.stack[-1] == self.min_stack[-1]:
+#             self.min_stack.pop()
+#         self.stack.pop()
 
-    def top(self):
-        return self.stack[-1]
+#     def top(self):
+#         return self.stack[-1]
     
-    def getMin(self):
-        return self.min_stack[-1]
+#     def getMin(self):
+#         return self.min_stack[-1]
     
 
 
 
 
-minStack = Minstack()
-minStack.push(-2)
-minStack.push(0)
-minStack.push(-3)
-print(minStack.getMin())  # -3
-minStack.pop()
-print(minStack.top())     # 0
-print(minStack.getMin())  # -2
+# minStack = Minstack()
+# minStack.push(-2)
+# minStack.push(0)
+# minStack.push(-3)
+# print(minStack.getMin())  # -3
+# minStack.pop()
+# print(minStack.top())     # 0
+# print(minStack.getMin())  # -2
+
+
+# 4. Binary search
+"""
+🟢 Easy — Search Insert Position (Binary Search)
+Problem:
+Given a sorted array nums and a target, return the index if target is found. If not, return the index where it would be inserted in order.
+Example 1:
+Input:  nums = [1, 3, 5, 6], target = 5
+Output: 2
+"""
+
+# this is my solution
+# def Search_insert_position(nums, target):
+#     for i in range(len(nums)):
+#         if nums[i] == target:
+#             return nums[i]
+#         else:
+#             nums.insert(i + 1, target)
+#             nums.sort()
+#             return nums[i]
+    
+# nums = [1, 3, 5, 6]
+# target = 7
+
+# print(Search_insert_position(nums, target))
+
+def Search_insert_position(nums, target):
+    left = 0
+    right = len(nums) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return left
+
+
+
+nums = [1,3,5,6]
+target = 7
+print(Search_insert_position(nums, target))
