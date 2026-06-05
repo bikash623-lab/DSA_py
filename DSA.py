@@ -517,10 +517,10 @@ Output: 2
 # print(Search_insert_position(nums, target))
 
 def Search_insert_position(nums, target):
-    left = 0
+    left = 0 # 1 round ma left 0 and depend on 1st loop, in 2nd round left will be different same goes to right also 
     right = len(nums) - 1
 
-    while left <= right:
+    while left <= right: # this loop will run every time once left and right get update
         mid = (left + right) // 2
         if nums[mid] == target:
             return mid
