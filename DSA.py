@@ -516,22 +516,58 @@ Output: 2
 
 # print(Search_insert_position(nums, target))
 
-def Search_insert_position(nums, target):
-    left = 0 # 1 round ma left 0 and depend on 1st loop, in 2nd round left will be different same goes to right also 
-    right = len(nums) - 1
+# def Search_insert_position(nums, target):
+#     left = 0 # 1 round ma left 0 and depend on 1st loop, in 2nd round left will be different same goes to right also 
+#     right = len(nums) - 1
 
-    while left <= right: # this loop will run every time once left and right get update
-        mid = (left + right) // 2
-        if nums[mid] == target:
-            return mid
-        elif nums[mid] < target:
-            left = mid + 1
-        else:
-            right = mid - 1
-    return left
+#     while left <= right: # this loop will run every time once left and right get update
+#         mid = (left + right) // 2
+#         if nums[mid] == target:
+#             return mid
+#         elif nums[mid] < target:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return left
 
 
 
-nums = [1,3,5,6]
-target = 7
-print(Search_insert_position(nums, target))
+# nums = [1,3,5,6]
+# target = 7
+# print(Search_insert_position(nums, target))
+
+
+"""
+🟢 Easy — House Robber (Dynamic Programming)
+Problem:
+You are a robber planning to rob houses along a street. Each house has some money. You cannot rob two adjacent houses (alarm will trigger). Return the maximum amount you can rob.
+Example 1:
+Input:  nums = [1, 2, 3, 1]
+Output: 4
+Explanation: Rob house 1 (1) + house 3 (3) = 4
+"""
+
+
+def house_robber(nums):
+    if len(nums) == 1: 
+        return nums[0]
+    
+    prev2 = nums[0] # 1
+    prev1 = max(nums[0], nums[1]) # (1.2) == 2
+
+    for i in range(2, len(nums)):
+        current = max(nums[i] + prev2, prev1)
+        prev2 = prev1
+        prev1 = current
+    return prev1
+
+
+
+
+
+
+
+
+
+print(house_robber([1, 2, 3, 1]))    # 4
+print(house_robber([2, 7, 9, 3, 1])) # 12
