@@ -548,26 +548,43 @@ Explanation: Rob house 1 (1) + house 3 (3) = 4
 """
 
 
-def house_robber(nums):
-    if len(nums) == 1: 
-        return nums[0]
+# def house_robber(nums):
+#     if len(nums) == 1: 
+#         return nums[0]
     
-    prev2 = nums[0] # 1
-    prev1 = max(nums[0], nums[1]) # (1.2) == 2
+#     prev2 = nums[0] # 1
+#     prev1 = max(nums[0], nums[1]) # (1,2) == 2
 
-    for i in range(2, len(nums)):
-        current = max(nums[i] + prev2, prev1)
-        prev2 = prev1
-        prev1 = current
-    return prev1
+#     for i in range(2, len(nums)):
+#         current = max(nums[i] + prev2, prev1)
+#         prev2 = prev1
+#         prev1 = current
+#     return prev1
+
+# print(house_robber([1, 2, 3, 1]))    # 4
+# print(house_robber([2, 7, 9, 3, 1])) # 12
+
+"""
+🟢 Minimum Size Subarray Sum (Sliding Window)
+target = 7
+nums = [2, 3, 1, 2, 4, 3]
+Output: 2
+"""
+
+def min_subarray_sum(target, nums):
+    left = 0
+    window_sum = 0
+    min_length = float('inf')
+
+    for right in range(len(nums)):
+        window_sum += nums[right]
+        while window_sum >= target:
+            min_length = min(min_length, right - left + 1)
+            window_sum -= nums[left]
+            left +=1
+    return 0 if min_length == float('inf') else min_length
 
 
-
-
-
-
-
-
-
-print(house_robber([1, 2, 3, 1]))    # 4
-print(house_robber([2, 7, 9, 3, 1])) # 12
+print(min_subarray_sum(7, [2,3,1,2,4,3]))       # 2
+print(min_subarray_sum(4, [1,4,4]))              # 1
+print(min_subarray_sum(11, [1,1,1,1,1,1,1,1])) # 0
