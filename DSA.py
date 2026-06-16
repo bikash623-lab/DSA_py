@@ -584,7 +584,12 @@ def min_subarray_sum(target, nums):
             left +=1
     return 0 if min_length == float('inf') else min_length
 
+<<<<<<< HEAD
 
 print(min_subarray_sum(7, [2,3,1,2,4,3]))       # 2
 print(min_subarray_sum(4, [1,4,4]))              # 1
 print(min_subarray_sum(11, [1,1,1,1,1,1,1,1])) # 0
+=======
+print(house_robber([1, 2, 3, 1]))    # 4
+print(house_robber([2, 7, 9, 3, 1])) # 12
+>>>>>>> 5044e589fe49057cd0787d7714bb8d42a74101df
