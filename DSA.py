@@ -596,25 +596,21 @@ return True if there are two distinct indices i and j such that:
 nums[i] == nums[j]
 abs(i - j) <= k
 """
-# def contains_duplicate_ii(nums, k):
-#     seen = {}
+def contains_duplicate_ii(nums, k):
+    seen = {}
 
-#     for i, num in enumerate(nums):
-#         if num in seen and abs(i - seen[num]) <= k:
-#             return True
-#         seen[num] = i
-#     return False
-
-
-
-# print(contains_duplicate_ii([1,2,3,1], 3))      # True
-# print(contains_duplicate_ii([1,2,3,1,2,3], 2))  # False
-# print(contains_duplicate_ii([1,0,1,1], 1))       # True
+    for i, num in enumerate(nums):
+        if num in seen and abs(i - seen[num]) <= k:
+            return True
+        seen[num] = i
+    return False
 
 
 
-seen = {"A":1,
-        "B":8}
-for i, num in enumerate (seen):
-    seen[num] = i
+print(contains_duplicate_ii([1,2,3,1], 3))      # True
+print(contains_duplicate_ii([1,2,3,1,2,3], 2))  # False
+print(contains_duplicate_ii([1,0,1,1], 1))       # True
+
+
+
 
